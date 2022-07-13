@@ -387,6 +387,7 @@ Feel free to contribute any kind of function or enhancement, here the coding sty
 Code should pass the [Flake8](http://flake8.pycqa.org/en/latest/) check before committing.
 
 ## TODOs
+- [ ] Customized optimizer and model architecture
 - [ ] Support and unittest `hydra.multirun`
 - [x] Add graphs visualiazation
 - [x] Support DistributedDataParallel
