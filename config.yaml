@@ -1,0 +1,46 @@
+resume: null
+save_dir: ckpt/
+log_dir: tensorboard/
+n_gpu: 4
+gpus: 1,2,3,4
+metrics:
+- _target_: srcs.model.metric.accuracy
+- _target_: srcs.model.metric.top_k_acc
+data_loader:
+  _target_: srcs.data_loader.data_loaders.get_data_loaders
+  data_dir: /home/dejie/projects/ego_objects/data/
+  batch_size: 256
+  shuffle: true
+  validation_split: 0.1
+  num_workers: 8
+name: MnistLeNet
+arch:
+  _target_: srcs.model.model.MnistModel
+  num_classes: 10
+loss:
+  _target_: srcs.model.loss.nll_loss
+optimizer:
+  _target_: torch.optim.Adam
+  lr: 0.001
+  weight_decay: 0
+  amsgrad: true
+lr_scheduler:
+  _target_: torch.optim.lr_scheduler.StepLR
+  step_size: 50
+  gamma: 0.1
+n_cpu: 8
+batch_size: 256
+learning_rate: 0.001
+weight_decay: 0
+scheduler_step_size: 50
+scheduler_gamma: 0.1
+status: train
+trainer:
+  epochs: 20
+  logging_step: 100
+  monitor: min loss/valid
+  save_topk: 7
+  early_stop: 10
+  tensorboard: true
+local_rank: 3
+cwd: .

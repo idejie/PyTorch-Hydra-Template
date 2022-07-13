@@ -1,0 +1,13 @@
+log_dir: tensorboard/
+checkpoint: ckpt/checkpoint-epoch1.pth
+n_gpu:
+metrics:
+  - _target_: srcs.model.metric.accuracy
+  - _target_: srcs.model.metric.top_k_acc
+
+defaults:
+  - _self_
+  - data: mnist_test
+  - status: evaluate
+  - hydra/run/dir: job_timestamp
+  - override hydra/job_logging : custom

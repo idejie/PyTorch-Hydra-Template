@@ -1,0 +1,2 @@
+# @package hydra.run
+dir: ./run/${status} #/${now:%Y-%m-%d}/${now:%H-%M-%S}

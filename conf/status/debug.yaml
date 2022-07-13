@@ -1,0 +1,12 @@
+# @package _global_
+status: debug
+
+trainer:
+  epochs: 5
+  logging_step: 10
+
+  monitor: min loss/valid
+  save_topk: 3
+  early_stop: 5
+
+  tensorboard: false

@@ -1,0 +1,6 @@
+torch==1.9.1
+torchvision
+numpy
+hydra-core==1.2
+tqdm
+tensorboard>=1.14

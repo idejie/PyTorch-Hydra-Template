@@ -1,0 +1,18 @@
+resume: #ckpt/model_best.pth
+save_dir: ckpt/
+log_dir: tensorboard/
+n_gpu: 
+gpus: 1,2,3,4
+metrics:
+  - _target_: srcs.model.metric.accuracy
+  - _target_: srcs.model.metric.top_k_acc
+
+defaults:
+  - _self_
+  - data: mnist_train
+  - model: mnist_lenet
+  - hparams: lenet_baseline
+
+  - status: train
+  - hydra/run/dir: job_timestamp
+  - override hydra/job_logging : custom

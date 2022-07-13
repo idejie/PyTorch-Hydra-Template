@@ -1,0 +1,21 @@
+log_dir: tensorboard/
+checkpoint: ckpt/checkpoint-epoch1.pth
+n_gpu: null
+metrics:
+- _target_: srcs.model.metric.accuracy
+- _target_: srcs.model.metric.top_k_acc
+data_loader:
+  _target_: srcs.data_loader.data_loaders.get_data_loaders
+  data_dir: ${hydra:runtime.cwd}/data/
+  batch_size: 512
+  training: false
+  shuffle: false
+  num_workers: 4
+status: evaluate
+trainer:
+  epochs: 5
+  logging_step: 10
+  monitor: min loss/valid
+  save_topk: 3
+  early_stop: 5
+  tensorboard: false

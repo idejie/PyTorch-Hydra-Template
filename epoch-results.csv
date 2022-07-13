@@ -1,0 +1,3 @@
+,loss,loss,accuracy,accuracy,top_k_acc,top_k_acc
+,train,valid,train,valid,train,valid
+epoch-1,1.7010987817116503,0.9299054543177286,0.0830078125,0.703705018939394,0.287109375,0.9313446969696969
