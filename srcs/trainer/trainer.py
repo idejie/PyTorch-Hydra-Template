@@ -1,3 +1,4 @@
+from srcs.utils.util import is_master
 import torch
 import torch.distributed as dist
 from torchvision.utils import make_grid
@@ -42,13 +43,14 @@ class Trainer(BaseTrainer):
 
             self.optimizer.zero_grad()
             output = self.model(data)
+            
             loss = self.criterion(output, target)
             loss.backward()
             self.optimizer.step()
 
             self.writer.set_step((epoch - 1) * self.len_epoch + batch_idx)
             self.train_metrics.update('loss', collect(loss))
-
+            
             if batch_idx % self.log_step == 0:
                 self.writer.add_image('train/input', make_grid(data.cpu(), nrow=8, normalize=True))
                 for met in self.metric_ftns:
@@ -59,7 +61,7 @@ class Trainer(BaseTrainer):
             if batch_idx == self.len_epoch:
                 break
         log = self.train_metrics.result()
-
+            
         if self.valid_data_loader is not None:
             val_log = self._valid_epoch(epoch)
             log.update(**val_log)
@@ -69,6 +71,8 @@ class Trainer(BaseTrainer):
 
         # add result metrics on entire epoch to tensorboard
         self.writer.set_step(epoch)
+        if epoch == 1 and is_master():
+            self.writer.add_graph(self.model,data)
         for k, v in log.items():
             self.writer.add_scalar(k+'/epoch', v)
         return log

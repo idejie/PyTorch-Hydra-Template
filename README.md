@@ -14,7 +14,6 @@
       - [Resuming from checkpoints](#resuming-from-checkpoints)
       - [Using Multiple GPU](#using-multiple-gpu)
   - [Customization](#customization)
-      - [Project initialization](#project-initialization)
       - [Data Loader](#data-loader)
       - [Trainer](#trainer)
       - [Model](#model)
@@ -262,12 +261,6 @@ You can enable multi-GPU training(with DataParallel) by setting `n_gpu` argument
 
 ## Customization
 
-### Project initialization
-Use the `new_project.py` script to make your new project directory with template files.
-`python new_project.py ../NewProject` then a new project folder named 'NewProject' will be made.
-This script will filter out unneccessary files like cache, git files or readme file.
-
-
 ### Data Loader
 * **Writing your own data loader**
 
@@ -380,7 +373,7 @@ This template supports Tensorboard visualization with `torch.utils.tensorboard`.
 
 2. **Open Tensorboard server**
 
-    Type `tensorboard --logdir outputs/train/` at the project root, then server will open at `http://localhost:6006`
+    Type `tensorboard --logdir tensorboad` at the project root, then server will open at `http://localhost:6006`
 
 By default, values of loss and metrics specified in config file, input images, and histogram of model parameters will be logged.
 If you need more visualizations, use `add_scalar('tag', data)`, `add_image('tag', image)`, etc in the `trainer._train_epoch` method.
@@ -394,7 +387,7 @@ Feel free to contribute any kind of function or enhancement, here the coding sty
 Code should pass the [Flake8](http://flake8.pycqa.org/en/latest/) check before committing.
 
 ## TODOs
-- [ ] add graphs visualiazation
+- [x] add graphs visualiazation
 - [x] Support DistributedDataParallel
 - [x] Option to keep top-k checkpoints only
 - [x] Simple unittest code for `nn.Module` and others

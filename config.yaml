@@ -42,5 +42,5 @@ trainer:
   save_topk: 7
   early_stop: 10
   tensorboard: true
-local_rank: 3
+local_rank: 0
 cwd: .
