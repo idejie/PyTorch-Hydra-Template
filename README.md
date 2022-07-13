@@ -387,7 +387,8 @@ Feel free to contribute any kind of function or enhancement, here the coding sty
 Code should pass the [Flake8](http://flake8.pycqa.org/en/latest/) check before committing.
 
 ## TODOs
-- [x] add graphs visualiazation
+- [ ] Support and unittest `hydra.multirun`
+- [x] Add graphs visualiazation
 - [x] Support DistributedDataParallel
 - [x] Option to keep top-k checkpoints only
 - [x] Simple unittest code for `nn.Module` and others
