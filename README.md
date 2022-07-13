@@ -1,5 +1,6 @@
 # PyTorch & Hydra Template
 
+> Template for PyTorch DDP training and Hydra configuring
 
 <!-- TOC depthFrom:1 depthTo:6 orderedList:false -->
   - [Installation](#installation)
@@ -36,7 +37,7 @@
 * PyTorch == 1.9.1
 * tensorboard >= 1.14 (see [Tensorboard Visualization](#tensorboard-visualization))
 * tqdm
-* hydra-core =- 1.2.0
+* hydra-core == 1.2.0
 
 ### Features
 * Simple and clear directory structure, suitable for most of deep learning projects.
@@ -393,9 +394,9 @@ Feel free to contribute any kind of function or enhancement, here the coding sty
 Code should pass the [Flake8](http://flake8.pycqa.org/en/latest/) check before committing.
 
 ## TODOs
-- [ ] Support DistributedDataParallel
+- [ ] add graphs visualiazation
+- [x] Support DistributedDataParallel
 - [x] Option to keep top-k checkpoints only
-- [ ] Simple unittest code for `nn.Module` and others
-
+- [x] Simple unittest code for `nn.Module` and others
 ## License
 This project is licensed under the MIT License. See  LICENSE for more details
