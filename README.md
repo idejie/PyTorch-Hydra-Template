@@ -2,6 +2,15 @@
 
 > Template for PyTorch DDP training and Hydra configuring
 
+# TODOs
+- [ ] Customized optimizer and model architecture
+- [ ] Support and unittest `hydra.multirun`
+- [x] Add graphs visualiazation
+- [x] Support DistributedDataParallel
+- [x] Option to keep top-k checkpoints only
+- [x] Simple unittest code for `nn.Module` and others
+
+
 <!-- TOC depthFrom:1 depthTo:6 orderedList:false -->
   - [Installation](#installation)
       - [Requirements](#requirements)
@@ -25,7 +34,6 @@
       - [Checkpoints](#checkpoints-1)
       - [Tensorboard Visualization](#tensorboard-visualization)
   - [Contribution](#contribution)
-  - [TODOs](#todos)
   - [License](#license)
 
 <!-- /TOC -->
@@ -386,12 +394,6 @@ Feel free to contribute any kind of function or enhancement, here the coding sty
 
 Code should pass the [Flake8](http://flake8.pycqa.org/en/latest/) check before committing.
 
-## TODOs
-- [ ] Customized optimizer and model architecture
-- [ ] Support and unittest `hydra.multirun`
-- [x] Add graphs visualiazation
-- [x] Support DistributedDataParallel
-- [x] Option to keep top-k checkpoints only
-- [x] Simple unittest code for `nn.Module` and others
+
 ## License
 This project is licensed under the MIT License. See  LICENSE for more details
